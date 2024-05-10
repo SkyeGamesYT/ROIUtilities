@@ -42,9 +42,11 @@ help_command = commands.DefaultHelpCommand(
 bot = commands.Bot(
     command_prefix="-",  # - will be bot's prefix
     case_insensitive=True,
-  intents=discord.Intents.all(),
-  help_command=help_command,
-  activity=discord.Activity(type=discord.activity.ActivityType.watching, name="The Realm of Imagination",status=discord.Status.idle)
+    intents=discord.Intents.all(),
+    help_command=help_command,
+    activity=discord.Activity(type=discord.activity.ActivityType.watching, name="The Realm of Imagination",status=discord.Status.idle)
+    bot.load_extension("cogs.maincog")
+    
 )
 
 
@@ -121,14 +123,6 @@ async def setrank(ctx, username, rank: int):
     else:
         await ctx.send("Rank must be at least 1 and at most 253.")
 
-@bot.command(name="echo", description="Usage: -echo <message>")
-async def echo(ctx, *,args):
-    if ctx.author.id >= 0:
-        await ctx.send(args)
-
-@bot.command(name="slap", description="Usage: -slap <mention>")
-async def slap(ctx, member:discord.User):
-  await ctx.send(f"{ctx.message.author.mention} slaps {member.mention}!") 
 
 
 @bot.command(name="ban", description="Usage: -ban <mention> <reason>")

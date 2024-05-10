@@ -48,7 +48,7 @@ bot = commands.Bot(
 )
 
 
-roblox = Client(os.getenv("ROBLOXTOKEN"))
+roblox = Client(secret.ROBLOXTOKEN)
 
 
 
@@ -358,4 +358,4 @@ async def unlink(ctx):
 
 
 
-bot.run(os.environ["DISCORDTOKEN"])  # Grab the DISCORDTOKEN env from our .env file
+bot.run(secret.DISCORDTOKEN2)  # Grab the DISCORDTOKEN env from our .env file

@@ -17,8 +17,8 @@ import aiohttp
 
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
-roblox = Client(os.getenv("ROBLOXTOKEN"))
-verify_log_channel = 1237771705842270248
+roblox = Client("")
+verify_log_channel = 0
 
 bot = commands.Bot(intents=discord.Intents.all(), command_prefix="r-")
 
@@ -82,8 +82,7 @@ class verify1(ui.Button):
                 if user:
                     print(f"Found user, {result1[0]}")
                     if user.description == result3[0]:
-                        cursor.execute(f"INSERT INTO accounts VALUES (?, ?)",
-                                       (interaction.user.id, username))
+                        cursor.execute(f"INSERT INTO accounts VALUES (?, ?)",(interaction.user.id, username))
                         await interaction.response.send_message(
                             f"Verified as {result1[0]}")
                         embed = discord.Embed(title="User Verified")
@@ -110,8 +109,7 @@ class verify1(ui.Button):
 class newverify(ui.Button):
 
     def __init__(self):
-        super().__init__(label="Generate new verification sentence",
-                         style=ButtonStyle.green)
+        super().__init__(label="Generate new verification sentence",style=ButtonStyle.green)
 
     async def callback(self, interaction: ...):
         r = RandomSentence()

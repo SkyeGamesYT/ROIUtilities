@@ -22,8 +22,8 @@ from wonderwords import RandomSentence
 from static import buttons
 
 
-group_id = 0
-rblx = roblox.Client("")
+group_id = 16564777
+rblx = roblox.Client(os.getenv("ROBLOXTOKEN"))
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
 
@@ -90,10 +90,8 @@ class roblox(commands.Cog):
             await ctx.send("Promoted user.")
         else:
             await ctx.send("Rank must be at least 1 and at most 253.")
-
-
-
-
+            
+            
 
 
 
@@ -157,6 +155,16 @@ class roblox(commands.Cog):
         embed = discord.Embed(title="Regenerate Sentence", description="Press the button below to regenerate if an issue occurs.", color=0x2ecc71)
         view.add_item(item=button)
         await ctx.send(embed=embed, view=view)
+    
+    
+    @commands.command(name="update")
+    async def update(self, ctx):
+        button = buttons.updateUser()
+        view = discord.ui.View()
+        embed = discord.Embed(title="Test")
+        view.add_item(item=button)
+        await ctx.send(embed=embed, view=view)
+        
 
     @commands.command(name="unlink")
     async def unlink(self, ctx):
@@ -164,6 +172,9 @@ class roblox(commands.Cog):
         connection.commit()
         embed = discord.Embed(title="Account unlinked", description="You have successfully unlinked your Roblox account.", color=0x2ecc71)
         await ctx.reply(embed=embed)
+
+
+
 
 
 async def setup(bot: commands.Bot):

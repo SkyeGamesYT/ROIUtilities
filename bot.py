@@ -23,7 +23,7 @@ from static import buttons
 
 
 
-
+rr_channel = 1239950866912514110
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS warningsdb (user_id INTEGER, reason TEXT, moderator TEXT, warn_id TEXT)")
@@ -42,11 +42,11 @@ help_command = commands.DefaultHelpCommand(
 
 
 bot = commands.Bot(
-        command_prefix="r-" 
+        command_prefix="r-" ,
         intents = discord.Intents.all(), 
         help_command=help_command,
         activity=discord.Activity(type=discord.activity.ActivityType.watching, name="The Realm of Imagination",status=discord.Status.idle),
-        )
+)
 
 
 @bot.event
@@ -65,5 +65,7 @@ async def setup_hook():
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
+    
+    
 
-bot.run("TOKEN")
+bot.run(os.getenv("DISCORDTOKEN"))

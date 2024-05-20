@@ -24,7 +24,7 @@ from static import buttons
 
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
-roblox = Client(os.getenv("ROBLOXTOKEN"))
+roblox = Client()
 
 class MainCog(commands.Cog):
   def __init__(self, bot: commands.Bot):

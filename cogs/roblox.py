@@ -23,7 +23,7 @@ from static import buttons
 
 
 group_id = 16564777
-rblx = roblox.Client(os.getenv("ROBLOXTOKEN"))
+rblx = roblox.Client()
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
 

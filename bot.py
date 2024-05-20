@@ -68,4 +68,4 @@ async def on_ready():
     
     
 
-bot.run(os.getenv("DISCORDTOKEN"))
+bot.run()

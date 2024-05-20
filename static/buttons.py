@@ -19,7 +19,7 @@ from discord.utils import get
 
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
-rblx = Client(os.getenv("ROBLOXTOKEN"))
+rblx = Client()
 verify_log_channel = 1237771705842270248
 group_id = 16564777
 

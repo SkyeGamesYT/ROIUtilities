@@ -50,6 +50,18 @@ class MainCog(commands.Cog):
       cursor.execute("SELECT * FROM accounts")
       result = cursor.fetchall()
       print(result)
+      
+  @commands.command(name="annoy_defy")
+  async def annoy_defy(self, ctx):
+    if ctx.author.id == 0:
+      times = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+      defy = self.bot.fetch_user(733024205712523314)
+      dm = self.bot.create_dm(defy)
+      for i in times:
+        dm.send("HAI DEFY")
+    else:
+      ctx.reply("Nuh uh")
+        
 
   @commands.command(name="getrole")
   async def getrole(self, ctx, *, args):

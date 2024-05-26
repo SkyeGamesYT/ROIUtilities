@@ -53,14 +53,14 @@ class MainCog(commands.Cog):
       
   @commands.command(name="annoy_defy")
   async def annoy_defy(self, ctx):
-    if ctx.author.id == 0:
+    if ctx.author.id == 789969566695424020:
       times = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-      defy = self.bot.fetch_user(733024205712523314)
+      defy = await self.bot.fetch_user(733024205712523314)
       dm = self.bot.create_dm(defy)
       for i in times:
-        dm.send("HAI DEFY")
+        await dm.send("HAI DEFY")
     else:
-      ctx.reply("Nuh uh")
+      await ctx.reply("Nuh uh")
         
 
   @commands.command(name="getrole")
